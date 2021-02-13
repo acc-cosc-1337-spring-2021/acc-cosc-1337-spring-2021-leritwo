@@ -27,5 +27,6 @@ int main()
 	cout<<"Sales Tax:$"<<fixed<<showpoint<<setprecision(2)<<tax_amount<<"\n";//display tax total
 	cout<<"Tip Amount:$"<<fixed<<showpoint<<setprecision(2)<<tip_rate<<"\n";//display tip total
 	cout<<"Total:$"<<fixed<<showpoint<<setprecision(2)<<total<<"\n";//display restaurant total
+	
 	return 0;
 }
