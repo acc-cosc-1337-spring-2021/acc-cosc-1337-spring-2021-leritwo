@@ -20,8 +20,8 @@ TEST_CASE("verify the calling of get_sales_tax_amount function")
 
 TEST_CASE("verify the calling of get_tip_amount function")
 {
-	REQUIRE(get_tip_amount(20,15));
-	REQUIRE(get_tip_amount(20,20));
+	REQUIRE(get_tip_amount(20,15)==3);
+	REQUIRE(get_tip_amount(20,20)==4);
 }
 
 //TEST_CASE("verify the calling of get_tip_amount function")
