@@ -7,6 +7,7 @@ using namespace std;
 
 int main() 
 {
+	
 	int num_grade;//creating a variable for the input grade
 	string letter_grade;//creating a variable for return value
 	cout<<"Enter numerical grade to know what the equivalent letter grade is:";//getting input from user of # grade

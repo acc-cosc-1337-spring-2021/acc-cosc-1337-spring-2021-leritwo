@@ -6,7 +6,6 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-
 TEST_CASE("Verify numerical grade assignment to letter grades")
 {
 	REQUIRE(get_letter_grade_using_if(95)=="A");
