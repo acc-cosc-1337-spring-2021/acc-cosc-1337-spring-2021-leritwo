@@ -6,7 +6,18 @@ using std::vector;
 
 bool TicTacToe::game_over()
 {
-    return check_board_full();
+    //return check_board_full();
+    if(check_column_win() || check_row_win() || check_diagonal_win())
+    {
+        set_winner();
+        return true;
+    }
+    if(check_board_full())
+    {
+        winner="C";
+        return true;
+    }
+    return false;
 }
 
 void TicTacToe::start_game(string first_player)
@@ -72,4 +83,77 @@ void TicTacToe::clear_board()
     {
         pegs.at(i)= " ";
     }
+}
+
+bool TicTacToe::check_column_win()
+{
+
+    if ((pegs.at(0)=="X" && pegs.at(3)=="X" && pegs.at(6)== "X") || (pegs.at(0)=="O" && pegs.at(3)=="O" && pegs.at(6)== "O" ))
+    {
+        return true;
+    }
+    if((pegs.at(1)=="X" && pegs.at(4)=="X" && pegs.at(7)== "X") || (pegs.at(1)=="O" && pegs.at(4)=="O" && pegs.at(7)== "O" ))
+    {
+        return true;
+    }
+    if((pegs.at(2)=="X" && pegs.at(5)=="X" && pegs.at(8)== "X") || (pegs.at(2)=="O" && pegs.at(5)=="O" && pegs.at(8)== "O" ))
+    {
+        return true;
+    }
+    
+    return false;
+
+}
+
+bool TicTacToe::check_row_win()
+{
+
+    if ((pegs.at(0)=="X" && pegs.at(1)=="X" && pegs.at(2)== "X") || (pegs.at(0)=="O" && pegs.at(1)=="O" && pegs.at(2)== "O" ))
+    {
+        return true;
+    }
+    if((pegs.at(3)=="X" && pegs.at(4)=="X" && pegs.at(5)== "X") || (pegs.at(3)=="O" && pegs.at(4)=="O" && pegs.at(5)== "O" ))
+    {
+        return true;
+    }
+    if((pegs.at(6)=="X" && pegs.at(7)=="X" && pegs.at(8)== "X") || (pegs.at(6)=="O" && pegs.at(7)=="O" && pegs.at(8)== "O" ))
+    {
+        return true;
+    }
+    
+    return false;
+
+}
+
+bool TicTacToe::check_diagonal_win()
+{
+
+    if ((pegs.at(0)=="X" && pegs.at(4)=="X" && pegs.at(8)== "X") || (pegs.at(0)=="O" && pegs.at(4)=="O" && pegs.at(8)== "O" ))
+    {
+        return true;
+    }
+    if((pegs.at(2)=="X" && pegs.at(4)=="X" && pegs.at(6)== "X") || (pegs.at(2)=="O" && pegs.at(4)=="O" && pegs.at(6)== "O" ))
+    {
+        return true;
+    }
+    
+    return false;
+
+}
+        
+void TicTacToe::set_winner()
+{
+    if (player=="X")
+    {
+        winner="O";
+    }
+    else
+    {
+       winner="X";  
+    }    
+}
+
+string TicTacToe::get_winner()
+{
+    return winner;
 }
