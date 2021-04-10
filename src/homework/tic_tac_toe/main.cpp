@@ -35,7 +35,14 @@ int main()
 			game.mark_board(position);
 			game.display_board();
 		} while (game.game_over() == false);
-		cout<<"\n"<<"The winner is: "<<game.get_winner();
+		if(game.get_winner()=="X" || game.get_winner()=="O")
+		{
+			cout<<"\n"<<"The winner is: "<<game.get_winner();
+		}
+		else
+		{
+			cout<<"\n"<<"The game ended as a tie.";
+		}
 		cout<<"\n"<<"Would you like to play again? If yes, enter y. If no, press any key: ";
 		cin>>play_again;
 	} while (play_again=='y' || play_again=='Y');
