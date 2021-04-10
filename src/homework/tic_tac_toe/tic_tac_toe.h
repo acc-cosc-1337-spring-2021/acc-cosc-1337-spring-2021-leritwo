@@ -14,6 +14,7 @@ class TicTacToe
         const void display_board();
         string get_winner();
     
+    
     private:
         void set_next_player();
         bool check_board_full();
