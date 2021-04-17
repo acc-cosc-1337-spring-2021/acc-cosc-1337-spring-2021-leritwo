@@ -38,20 +38,6 @@ const string TicTacToe::get_player()
     return player;
 }
 
-
-const void TicTacToe::display_board()
-{
-    for (size_t i=0; i < pegs.size(); i++)
-    {
-        if (i==3 || i==6)
-        {       
-            cout<<'\n';
-        } 
-
-        std::cout << pegs.at(i) << " ";
-    }
-}
-
 void TicTacToe::set_next_player()
 {
     if (player=="X" || player=="x")
@@ -157,4 +143,44 @@ void TicTacToe::set_winner()
 string TicTacToe::get_winner()
 {
     return winner;
+}
+ostream& operator<<(ostream& out, const TicTacToe& game)
+{
+
+    for (size_t i=0; i < game.pegs.size(); i++)
+    {
+         if (i==3 || i==6)
+        {       
+            out<<'\n';
+        } 
+        
+        out << game.pegs.at(i) << " ";
+  }
+    return out;
+}
+istream& operator>>(istream& in, TicTacToe& game)
+{
+    string first_input;
+    int position;
+    cout<<"To initiate the Tic Tac Toe game please insert 'X' or 'O':"<<'\n';
+    in>>first_input;
+    while (first_input !="X" && first_input!="o" && first_input!="O" && first_input!="x")
+    {
+        cout<<"To initiate the Tic Tac Toe game please insert 'X' or 'O':"<<'\n';
+        in>>first_input;
+    }
+    game.start_game(first_input);
+    do
+    {
+        cout<<'\n'<<"Please inidicate where you want the position of your input: ";
+        in>>position;
+        while(position<1 || position>9)
+        {
+            cout<<'\n'<<"Please inidicate where you want the position of your input: ";
+            in>>position;
+        }
+        game.mark_board(position);
+        cout<<game;
+    }while (game.game_over()==false );
+    return in;
 }
