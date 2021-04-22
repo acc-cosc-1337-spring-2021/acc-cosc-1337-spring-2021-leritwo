@@ -1,14 +1,14 @@
 //cpp
 #include "tic_tac_toe_manager.h"
+#include<memory>
 
 
-
-void TicTacToeManager::save_game(TicTacToe b)
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& b)
 {
-    games.push_back(b);
     string winner;
-    winner = b.get_winner();
-    update_winner_count(winner);   
+    winner = b->get_winner();
+    update_winner_count(winner);
+    games.push_back(std::move(b));  
 }
 
 ostream& operator<<(ostream& out, const TicTacToeManager& manager)
@@ -16,7 +16,8 @@ ostream& operator<<(ostream& out, const TicTacToeManager& manager)
     out<<"The previous games played will display next."<<"\n";
     for (size_t i=0; i < manager.games.size(); i++)
     {
-        out << "Game: "<<i+1<<"\n"<<manager.games[i] <<"\n";
+        out << "Game: "<<i+1<<"\n"<< *manager.games[i] <<"\n";
+
     }
     return out;
 }

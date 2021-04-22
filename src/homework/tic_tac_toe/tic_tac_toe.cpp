@@ -1,6 +1,9 @@
 //cpp
 #include"tic_tac_toe.h"
+#include"tic_tac_toe_3.h"
+#include"tic_tac_toe_4.h"
 #include<iostream>
+#include<memory>
 using namespace std ;
 using std::vector;
 
@@ -74,56 +77,18 @@ void TicTacToe::clear_board()
 
 bool TicTacToe::check_column_win()
 {
-
-    if ((pegs.at(0)=="X" && pegs.at(3)=="X" && pegs.at(6)== "X") || (pegs.at(0)=="O" && pegs.at(3)=="O" && pegs.at(6)== "O" ))
-    {
-        return true;
-    }
-    if((pegs.at(1)=="X" && pegs.at(4)=="X" && pegs.at(7)== "X") || (pegs.at(1)=="O" && pegs.at(4)=="O" && pegs.at(7)== "O" ))
-    {
-        return true;
-    }
-    if((pegs.at(2)=="X" && pegs.at(5)=="X" && pegs.at(8)== "X") || (pegs.at(2)=="O" && pegs.at(5)=="O" && pegs.at(8)== "O" ))
-    {
-        return true;
-    }
-    
     return false;
 
 }
 
 bool TicTacToe::check_row_win()
 {
-
-    if ((pegs.at(0)=="X" && pegs.at(1)=="X" && pegs.at(2)== "X") || (pegs.at(0)=="O" && pegs.at(1)=="O" && pegs.at(2)== "O" ))
-    {
-        return true;
-    }
-    if((pegs.at(3)=="X" && pegs.at(4)=="X" && pegs.at(5)== "X") || (pegs.at(3)=="O" && pegs.at(4)=="O" && pegs.at(5)== "O" ))
-    {
-        return true;
-    }
-    if((pegs.at(6)=="X" && pegs.at(7)=="X" && pegs.at(8)== "X") || (pegs.at(6)=="O" && pegs.at(7)=="O" && pegs.at(8)== "O" ))
-    {
-        return true;
-    }
-    
     return false;
 
 }
 
 bool TicTacToe::check_diagonal_win()
 {
-
-    if ((pegs.at(0)=="X" && pegs.at(4)=="X" && pegs.at(8)== "X") || (pegs.at(0)=="O" && pegs.at(4)=="O" && pegs.at(8)== "O" ))
-    {
-        return true;
-    }
-    if((pegs.at(2)=="X" && pegs.at(4)=="X" && pegs.at(6)== "X") || (pegs.at(2)=="O" && pegs.at(4)=="O" && pegs.at(6)== "O" ))
-    {
-        return true;
-    }
-    
     return false;
 
 }
@@ -162,6 +127,9 @@ istream& operator>>(istream& in, TicTacToe& game)
 {
     string first_input;
     int position;
+    
+    //unique_ptr<TicTacToe> game;
+
     cout<<"To initiate the Tic Tac Toe game please insert 'X' or 'O':"<<'\n';
     in>>first_input;
     while (first_input !="X" && first_input!="o" && first_input!="O" && first_input!="x")
