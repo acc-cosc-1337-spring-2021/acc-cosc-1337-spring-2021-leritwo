@@ -114,11 +114,20 @@ ostream& operator<<(ostream& out, const TicTacToe& game)
 
     for (size_t i=0; i < game.pegs.size(); i++)
     {
-         if (i==3 || i==6)
-        {       
-            out<<'\n';
+        if(game.pegs.size()==9)
+        {
+            if (i==3 || i==6)
+            {       
+                out<<'\n';
+            }
+        }
+        else if(game.pegs.size()==16)
+        {
+            if (i==4 || i==8 || i==12)
+            {       
+                out<<'\n';
+            }
         } 
-        
         out << game.pegs.at(i) << " ";
   }
     return out;
@@ -127,10 +136,7 @@ istream& operator>>(istream& in, TicTacToe& game)
 {
     string first_input;
     int position;
-    
-    //unique_ptr<TicTacToe> game;
-
-    cout<<"To initiate the Tic Tac Toe game please insert 'X' or 'O':"<<'\n';
+    cout<<'\n'<<"To initiate the Tic Tac Toe game please insert 'X' or 'O':";
     in>>first_input;
     while (first_input !="X" && first_input!="o" && first_input!="O" && first_input!="x")
     {
@@ -140,12 +146,25 @@ istream& operator>>(istream& in, TicTacToe& game)
     game.start_game(first_input);
     do
     {
-        cout<<'\n'<<"Please inidicate where you want the position of your input: ";
-        in>>position;
-        while(position<1 || position>9)
+        if(game.pegs.size()==9)
         {
             cout<<'\n'<<"Please inidicate where you want the position of your input: ";
             in>>position;
+            while(position<1 || position>9)
+            {
+                cout<<'\n'<<"Please inidicate where you want the position of your input: ";
+                in>>position;
+            }
+        }
+        if(game.pegs.size()==16)
+        {
+            cout<<'\n'<<"Please inidicate where you want the position of your input: ";
+            in>>position;
+            while(position<1 || position>16)
+            {
+                cout<<'\n'<<"Please inidicate where you want the position of your input: ";
+                in>>position;
+            }
         }
         game.mark_board(position);
         cout<<game;

@@ -19,7 +19,7 @@ class TicTacToe
     
     public:
         TicTacToe(){}
-        TicTacToe(int size) : pegs(size*size, ""){}
+        TicTacToe(int size) : pegs(size*size, " "){}
         bool game_over();
         void start_game(string first_player);
         void mark_board(int position);

@@ -10,9 +10,9 @@ class TicTacToe4 : public TicTacToe
         TicTacToe4():TicTacToe(4){}
 
     private:
-        bool check_column_win();
-        bool check_row_win();
-        bool check_diagonal_win();
+        bool check_column_win() override;
+        bool check_row_win() override;
+        bool check_diagonal_win() override;
 };
 
 
