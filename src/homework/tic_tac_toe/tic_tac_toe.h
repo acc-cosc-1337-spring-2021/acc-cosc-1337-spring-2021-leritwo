@@ -20,10 +20,12 @@ class TicTacToe
     public:
         TicTacToe(){}
         TicTacToe(int size) : pegs(size*size, " "){}
+        TicTacToe(vector<string> p, string win) : pegs(p), winner(win){}
         bool game_over();
         void start_game(string first_player);
         void mark_board(int position);
         const string get_player();
+        const vector<string> get_pegs();
         string get_winner();
 
     

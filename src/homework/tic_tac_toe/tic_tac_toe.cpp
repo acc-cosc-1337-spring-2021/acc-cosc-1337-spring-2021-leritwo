@@ -2,6 +2,7 @@
 #include"tic_tac_toe.h"
 #include"tic_tac_toe_3.h"
 #include"tic_tac_toe_4.h"
+#include"tic_tac_toe_data.h"
 #include<iostream>
 #include<memory>
 using namespace std ;
@@ -108,6 +109,10 @@ void TicTacToe::set_winner()
 string TicTacToe::get_winner()
 {
     return winner;
+}
+const vector<string> TicTacToe::get_pegs()
+{
+    return pegs;
 }
 ostream& operator<<(ostream& out, const TicTacToe& game)
 {

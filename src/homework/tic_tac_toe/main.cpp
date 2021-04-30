@@ -2,6 +2,7 @@
 #include "tic_tac_toe_manager.h"
 #include"tic_tac_toe_3.h"
 #include"tic_tac_toe_4.h"
+#include"tic_tac_toe_data.h"
 #include<iostream>
 using namespace std ;
 
@@ -14,7 +15,9 @@ int main()
 	int t;
 	int size;
 	unique_ptr<TicTacToe> game;
-	TicTacToeManager manager;
+	TicTacToeData data;
+	TicTacToeManager manager(data);
+	
 	cout<<"This Tic Tac Toe game allows you to choose the location of your input"<<'\n';
 	cout<<"by starting in the top left corner as 1 and the bottom right as 9 or 16 depending "<<'\n';
 	cout<<"if you choose a 3x3 or 4x4 Tic Tac Toe game."<<"\n";
