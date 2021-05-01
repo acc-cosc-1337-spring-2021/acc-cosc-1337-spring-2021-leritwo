@@ -15,7 +15,7 @@ class TicTacToeManager
     
     public:
         TicTacToeManager()=default;
-        TicTacToeManager(TicTacToeData& data);
+        TicTacToeManager(TicTacToeData data);
         //std::unique_ptr<TicTacToe&> save_game(std::unique_ptr<TicTacToe&>);
         void save_game(std::unique_ptr<TicTacToe>& b);
         void get_winner_total(int& o, int& w, int&t);
@@ -23,7 +23,7 @@ class TicTacToeManager
 
 
     private:
-        vector<unique_ptr<TicTacToe>>& games;
+        vector<unique_ptr<TicTacToe>> games;
         int x_win{0};
         int o_win{0};
         int ties{0};

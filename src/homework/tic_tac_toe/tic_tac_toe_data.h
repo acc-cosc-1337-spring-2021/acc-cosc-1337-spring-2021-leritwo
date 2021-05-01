@@ -6,12 +6,12 @@
 class TicTacToeData: public TicTacToe
 {
     public:
-        vector<std::unique_ptr<TicTacToe>> get_games();
         void save_games(const vector<std::unique_ptr<TicTacToe>>& games);
-
+        vector<std::unique_ptr<TicTacToe>> get_games();
+        
 
     private:
-        
+        const std::string file_name{"games_data.txt"};
 
 };
 

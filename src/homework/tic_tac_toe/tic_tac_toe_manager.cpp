@@ -44,11 +44,16 @@ void TicTacToeManager::update_winner_count(string winner)
         ties++;
     }
 }
-TicTacToeManager::TicTacToeManager(TicTacToeData& data)
+TicTacToeManager::TicTacToeManager(TicTacToeData d):data{d}
 {
-    vector<unique_ptr<TicTacToe>> games(data.get_games());
+    games=data.get_games();
+    for(auto& game:games)
+    {
+        update_winner_count(game->get_winner());
+    }
 }
 TicTacToeManager::~TicTacToeManager()
 {
-    TicTacToeData::save_games(games);
+    cout<<"\n"<<"Save Games"<<"\n";
+    data.save_games(games);
 }
